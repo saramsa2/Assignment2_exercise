@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "620398720686",
+    "project_id": "assignment2-exercise",
+    "storage_bucket": "assignment2-exercise.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620398720686:android:50f55a00eb92775ac39f3f",
+        "android_client_info": {
+          "package_name": "nz.ac.unitec.cs.assignment2_exercise"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620398720686-6g6rnkgakt7fvsf2dd82878mdr2lo5br.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBg1pCXEPHuFPP8aQ8WHT0AeyFCrbtisNE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620398720686-6g6rnkgakt7fvsf2dd82878mdr2lo5br.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
