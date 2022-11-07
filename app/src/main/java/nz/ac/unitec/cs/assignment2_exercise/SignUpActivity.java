@@ -14,9 +14,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class SignUpActivity extends AppCompatActivity {
-    EditText etEmail, etPassword1, etPassword2;
+    EditText etEmail, etPassword1, etPassword2, etFullName;
     Button btnCreate, btnCancel;
 
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -29,6 +31,7 @@ public class SignUpActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.et_signup_email);
         etPassword1 = findViewById(R.id.et_signup_password);
         etPassword2 = findViewById(R.id.et_signup_password_confirm);
+        etFullName = findViewById(R.id.et_signup_full_name);
         btnCreate = findViewById(R.id.btn_signup_create);
         btnCancel = findViewById(R.id.btn_signup_cancel);
 
@@ -49,6 +52,11 @@ public class SignUpActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if(task.isSuccessful()) {
+                                        FirebaseUser user = mAuth.getCurrentUser();
+                                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                                .setDisplayName(etFullName.getText().toString())
+                                                .build();
+                                        user.updateProfile(profileUpdates);
                                         Toast.makeText(SignUpActivity.this, "New account is created.",
                                                 Toast.LENGTH_SHORT).show();
                                         finish();
