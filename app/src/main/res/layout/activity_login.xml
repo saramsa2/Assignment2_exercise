@@ -27,7 +27,7 @@
             android:layout_height="0dp"
             android:layout_weight="0.1"/>
         <EditText
-            android:id="@+id/et_main_email"
+            android:id="@+id/et_login_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"
@@ -49,7 +49,7 @@
             android:layout_height="0dp"
             android:layout_weight="0.1"/>
         <EditText
-            android:id="@+id/et_main_password"
+            android:id="@+id/et_login_password"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"

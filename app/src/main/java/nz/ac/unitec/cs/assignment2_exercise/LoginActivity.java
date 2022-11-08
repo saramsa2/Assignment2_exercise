@@ -24,20 +24,16 @@ public class LoginActivity extends AppCompatActivity {
     EditText etEmail, etPassword;
     Button btLogin, btRegister;
 
-    private FirebaseAuth mAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        etEmail = findViewById(R.id.et_main_email);
-        etPassword = findViewById(R.id.et_main_password);
+        etEmail = findViewById(R.id.et_login_email);
+        etPassword = findViewById(R.id.et_login_password);
 
         btLogin = findViewById(R.id.bt_main_login);
         btRegister=findViewById(R.id.bt_main_register);
-
-        mAuth = FirebaseAuth.getInstance();
 
         addEventListeners();
     }
@@ -46,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
@@ -90,11 +87,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private boolean isValidInput(String email, String password) {
-        boolean response = true;
-        if(email.isEmpty() || password.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            response = false;
-
-        }
+        boolean response = !email.isEmpty() && !password.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches();
         return response;
     }
 }
