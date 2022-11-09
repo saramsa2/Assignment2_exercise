@@ -235,7 +235,6 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Failed to writing.", Toast.LENGTH_SHORT).show();
                     }
                 });
-
     }
 
     private void setResultScreen() {
