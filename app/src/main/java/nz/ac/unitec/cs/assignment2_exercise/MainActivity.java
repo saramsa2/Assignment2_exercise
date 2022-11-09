@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     ScrollView scrollResult;
     TextView tvResultWord, tvResultDefinition, tvResultSynonym;
     RecyclerView recyclerView;
+    Button btnStudy;
 
     final String BASE_URL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -64,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         tvResultDefinition = findViewById(R.id.tv_main_result_definitions);
         tvResultSynonym = findViewById(R.id.tv_main_result_synonyms);
         recyclerView = findViewById(R.id.rv_main);
+        btnStudy = findViewById(R.id.btn_main_study);
 
         addEventListeners();
         loadDatabase();
@@ -133,6 +137,15 @@ public class MainActivity extends AppCompatActivity {
 
     // event Listeners.
     private void addEventListeners() {
+
+        // Start study activity
+        btnStudy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, StudyActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // logout and move back login activity
         imgBtnLogout.setOnClickListener(new View.OnClickListener() {
